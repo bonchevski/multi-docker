@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true bonchevski/react-test npm test
 
 after_success:
-  - docker build -t bonchevski/multi-client ./client
   - docker build -t bonchevski/multi-nginx ./nginx
   - docker build -t bonchevski/multi-server ./server
   - docker build -t bonchevski/multi-worker ./worker
+  - docker build -t bonchevski/multi-client ./client -f ./client/Dockerfile
 
   # Log in to the docker CLI
 
